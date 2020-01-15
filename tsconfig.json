@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es6",
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "typeRoots": ["node_modules/@types", "./src/types"],
+        "lib": ["es2017", "dom", "es2017.string"]
+    }
+}

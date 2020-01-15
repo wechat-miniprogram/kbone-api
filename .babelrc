@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["@babel/env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+    }]
+  ],
+  "plugins": [
+    "@babel/transform-runtime"
+  ],
+  "env": {
+    "test": {
+      "presets": ["@babel/env"],
+      // "plugins": ["@babel/plugin-transform-runtime", "transform-es2015-modules-commonjs", "dynamic-import-node"]
+    }
+  }
+}
