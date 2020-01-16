@@ -90,5 +90,9 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.8.1",
     "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "jsonp-retry": "^1.0.3",
+    "whatwg-fetch": "^3.0.0"
   }
 }
