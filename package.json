@@ -92,7 +92,6 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "jsonp-retry": "^1.0.3",
     "whatwg-fetch": "^3.0.0"
   }
 }
