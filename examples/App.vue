@@ -4,7 +4,7 @@
     class="container"
   >
     <router-link
-      :to="routes.index"
+      to="/"
       class="homeIcon"
     >
       返回首页
@@ -12,18 +12,6 @@
     <router-view />
   </KView>
 </template>
-
-<script>
-import routes from "./route/config"
-
-export default {
-    data() {
-        return {
-            routes
-        }
-    }
-}
-</script>
 
 <style lang="less">
 @import "./example.less";

@@ -5,6 +5,9 @@ import Router from "vue-router"
 import routes from "./config"
 import Home from "../view/home/index.vue"
 import Interaction from "../view/components/interaction.vue"
+import Login from "../view/components/login.vue"
+import TitleBar from "../view/components/titleBar.vue"
+import PullDown from "../view/components/pulldown.vue"
 
 Vue.use(Router)
 
@@ -20,6 +23,21 @@ export default new Router({
             path: routes.pages.interaction,
             name: "Interaction",
             component: Interaction
+        },
+        {
+            path: routes.pages.login,
+            name: "login",
+            component: Login
+        },
+        {
+            path: routes.pages.titleBar,
+            name: "TitleBar",
+            component: TitleBar
+        },
+        {
+            path: routes.pages.pullDown,
+            name: "PullDown",
+            component: PullDown
         }
     ]
 })

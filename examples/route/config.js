@@ -1,6 +1,9 @@
 export default {
     index: "/(home|index)?",
     pages: {
-        interaction: "/ui/interaction"
+        interaction: "/api/interaction",
+        login: "/api/login",
+        titleBar: "/api/titlebar",
+        pullDown: "/api/pullDown"
     }
 }

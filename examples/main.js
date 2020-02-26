@@ -9,9 +9,11 @@ import {sync} from "vuex-router-sync"
 import router from "./route/index"
 import store from "./store/index"
 import App from "./App.vue"
+import KboneAPI from "../src/index"
 
 sync(store, router)
 Vue.use(KboneUI)
+Vue.use(KboneAPI)
 
 // eslint-disable-next-line no-new
 new Vue({

@@ -110,7 +110,7 @@ class Toast {
     `
     params = {
         title: "",
-        icon: "none",
+        icon: "success",
         image: "",
         duration: 1500,
         mask: false,

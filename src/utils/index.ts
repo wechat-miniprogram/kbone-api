@@ -42,67 +42,83 @@ export function getType(data: {} | any) {
 }
 
 // 把一个 Object 中的 value 都转换成 String 类型
-export function convertObjectValueToString(object: {[key in string]: any}) {
-    return Object.keys(object).reduce((ret: {[key in string]: any}, key) => {
-      if (typeof object[key] === 'string') {
-        ret[key] = object[key]
-      } else if (typeof object[key] === 'number') {
-        ret[key] = object[key] + ''
-      } else {
-        ret[key] = Object.prototype.toString.apply(object[key])
-      }
-      return ret
+export function convertObjectValueToString(object: {
+    [key in string]: any
+}) {
+    return Object.keys(object).reduce((ret: {
+        [key in string]: any
+    }, key) => {
+        if (typeof object[key] === "string") {
+            ret[key] = object[key]
+        } else if (typeof object[key] === "number") {
+            ret[key] = object[key] + ""
+        } else {
+            ret[key] = Object.prototype.toString.apply(object[key])
+        }
+        return ret
     }, {})
 }
 
-export function addQueryStringToUrl(url: string, data: {[key in string]: any}) {
-    if (typeof url === 'string' && typeof data === 'object' && data !== null && Object.keys(data).length > 0) {
-      const parts = url.split('?')
-      const path = parts[0]
-      const query = (parts[1] || '').split('&').reduce((pre: {[key in string]: any}, cur) => {
-        if (typeof cur === 'string' && cur.length > 0) {
-          const parts = cur.split('=')
-          const key = parts[0]
-          const value = parts[1]
-          pre[key] = value
-        }
-        return pre
-      }, {})
-  
-      // 把 data 中的数据 encodeURIComponent
-      const encodedData = Object.keys(data).reduce((ret: {[key in string]: any}, key) => {
-        if (typeof data[key] === 'object') {
-          ret[encodeURIComponent(key)] = encodeURIComponent(JSON.stringify(data[key]))
-        } else {
-          ret[encodeURIComponent(key)] = encodeURIComponent(data[key])
-        }
-        return ret
-      }, {})
-  
-      return path + '?' + urlEncodeFormData(Object.assign(query, encodedData))
+export function addQueryStringToUrl(url: string, data: {
+    [key in string]: any
+}) {
+    if (typeof url === "string" && typeof data === "object" && data !== null && Object.keys(data).length > 0) {
+        const parts = url.split("?")
+        const path = parts[0]
+        const query = (parts[1] || "").split("&").reduce((pre: {
+            [key in string]: any
+        }, cur) => {
+            if (typeof cur === "string" && cur.length > 0) {
+                const parts = cur.split("=")
+                const key = parts[0]
+                const value = parts[1]
+                pre[key] = value
+            }
+            return pre
+        }, {})
+
+        // 把 data 中的数据 encodeURIComponent
+        const encodedData = Object.keys(data).reduce((ret: {
+            [key in string]: any
+        }, key) => {
+            if (typeof data[key] === "object") {
+                ret[encodeURIComponent(key)] = encodeURIComponent(JSON.stringify(data[key]))
+            } else {
+                ret[encodeURIComponent(key)] = encodeURIComponent(data[key])
+            }
+            return ret
+        }, {})
+        return path + "?" + urlEncodeFormData(Object.assign(query, encodedData))
     } else {
-      return url
+        return url
     }
 }
 
-export function urlEncodeFormData(data: {[key in string]: any}, needEncode = false) {
-    if (typeof data !== 'object') {
-      return data
+export function urlEncodeFormData(data: {
+    [key in string]: any
+}, needEncode = false) {
+    if (typeof data !== "object") {
+        return data
     }
     const dataArray = []
-  
+
     for (const k in data) {
-      if (data.hasOwnProperty(k)) {
-        if (needEncode) {
-          try {
-            dataArray.push(`${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
-          } catch (e) {
-            dataArray.push(`${k}=${data[k]}`)
-          }
-        } else {
-          dataArray.push(`${k}=${data[k]}`)
+        // eslint-disable-next-line
+        if (data.hasOwnProperty(k)) {
+            if (needEncode) {
+                try {
+                    dataArray.push(`${encodeURIComponent(k)}=${encodeURIComponent(data[k])}`)
+                } catch (e) {
+                    dataArray.push(`${k}=${data[k]}`)
+                }
+            } else {
+                dataArray.push(`${k}=${data[k]}`)
+            }
         }
-      }
     }
-    return dataArray.join('&')
+    return dataArray.join("&")
+}
+
+export function bindApis() {
+
 }

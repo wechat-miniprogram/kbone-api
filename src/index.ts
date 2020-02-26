@@ -1,5 +1,9 @@
 import intercetorApi from "./wxapi/index"
+// the actual apis
 import * as ProxyApis from "./api/index"
+// eslint-disable-next-line
+import {AnyObj} from "./api/index.d"
+import fakeApis from "./fake/index"
 import {ismp} from "./utils/index"
 
 /**
@@ -7,9 +11,14 @@ import {ismp} from "./utils/index"
  * 2. 如果是 h5 环境，则使用 H5 的相关接口实现
  */
 
-const KboneAPI = {}
+const KboneAPI:AnyObj = {}
 
-Object.assign(KboneAPI, ProxyApis)
+Object.assign(KboneAPI, ProxyApis, fakeApis, {ismp})
+
+// for Vue
+KboneAPI.install = function(Vue: any) {
+    Vue.prototype.$api = KboneAPI
+}
 
 export default KboneAPI
 

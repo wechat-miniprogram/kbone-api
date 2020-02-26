@@ -37,6 +37,7 @@ module.exports = {
         share: true, // 是否支持分享，若支持，会展示分享按钮并调用 app 的 onShareAppMessage 按钮
         windowScroll: false, // 是否需要 window scroll 事件，会影响性能
         backgroundColor: '#F7F7F7', // page 的背景色
+        pullDownRefresh: true,
     },
     // 页面配置，可以为单个页面做个性化处理，覆盖全局配置
     pages: {},
