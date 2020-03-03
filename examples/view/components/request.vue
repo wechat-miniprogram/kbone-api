@@ -16,7 +16,11 @@
         图片下载
       </KButton>
       <KView style="text-align:center; margin: 20px;">
-          <img v-show="imgUrl" :src="imgUrl" alt="图片下载"/>
+        <img
+          v-show="imgUrl"
+          :src="imgUrl"
+          alt="图片下载"
+        />
       </KView>
     </KView>
   </KView>
