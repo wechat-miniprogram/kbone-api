@@ -1,8 +1,8 @@
 // eslint-disable-next-line
 import {AnyObj} from "../api/index.d"
-import intercetorApi from "../wxapi/index"
+import intercetorApi, {wrapFn} from "../wxapi/index"
 
-export function getSystemInfo(params: AnyObj) {
+function getSystemInfo(params: AnyObj) {
     if (params.success) {
         params.success({
             SDKVersion: "2.0.4",
@@ -25,7 +25,7 @@ export function getSystemInfo(params: AnyObj) {
     }
 }
 
-export function loadFontFace(params: AnyObj) {
+function loadFontFace(params: AnyObj) {
     if (params.success) {
         params.success({
             status: "loaded"
@@ -33,7 +33,7 @@ export function loadFontFace(params: AnyObj) {
     }
 }
 
-export function getSelectedTextRange(params: AnyObj) {
+function getSelectedTextRange(params: AnyObj) {
     if (params.success) {
         params.success({
             start: 0,
@@ -42,7 +42,7 @@ export function getSelectedTextRange(params: AnyObj) {
     }
 }
 
-export function downloadFile(params: AnyObj) {
+function downloadFile(params: AnyObj) {
     if (params.success) {
         params.success({
             statusCode: 400
@@ -50,7 +50,7 @@ export function downloadFile(params: AnyObj) {
     }
 }
 
-export function uploadFile(params: AnyObj) {
+function uploadFile(params: AnyObj) {
     if (params.success) {
         params.success({
             statusCode: 400
@@ -58,13 +58,13 @@ export function uploadFile(params: AnyObj) {
     }
 }
 
-export function connectSocket(params: AnyObj) {
+function connectSocket(params: AnyObj) {
     if (params.fail) {
         params.fail()
     }
 }
 
-export function closeSocket(params: AnyObj) {
+function closeSocket(params: AnyObj) {
     if (params.fail) {
         params.fail()
     }
@@ -297,15 +297,17 @@ asyncApis.forEach(key => {
     }
 })
 
-apis.getSystemInfo = getSystemInfo
-apis.loadFontFace = loadFontFace
-apis.getSelectedTextRange = getSelectedTextRange
-
-
 // 异步处理
-const promiseApis = {}
+const promiseApis: {[key in string]: (params: AnyObj) => void} = {}
 
 intercetorApi(promiseApis, apis)
 
+promiseApis.getSystemInfo = wrapFn(getSystemInfo)
+promiseApis.loadFontFace = wrapFn(loadFontFace)
+promiseApis.getSelectedTextRange = wrapFn(getSelectedTextRange)
+promiseApis.downloadFile = wrapFn(downloadFile)
+promiseApis.uploadFile = wrapFn(uploadFile)
+promiseApis.connectSocket = wrapFn(connectSocket)
+promiseApis.closeSocket = wrapFn(closeSocket)
 
 export default promiseApis

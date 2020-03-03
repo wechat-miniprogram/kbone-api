@@ -90,8 +90,5 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.8.1",
     "webpack-merge": "^4.1.0"
-  },
-  "dependencies": {
-    "whatwg-fetch": "^3.0.0"
   }
 }

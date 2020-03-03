@@ -89,6 +89,17 @@ export default {
                             link: routes.pages.pullDown
                         }
                     ]
+                },
+                {
+                    title: "网络",
+                    img: require("../../images/icon_nav_special.png"),
+                    active: false,
+                    items: [
+                        {
+                            text: "请求接口",
+                            link: routes.pages.request
+                        }
+                    ]
                 }
             ]
         }

@@ -8,6 +8,7 @@ import Interaction from "../view/components/interaction.vue"
 import Login from "../view/components/login.vue"
 import TitleBar from "../view/components/titleBar.vue"
 import PullDown from "../view/components/pulldown.vue"
+import Request from "../view/components/request.vue"
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ export default new Router({
             path: routes.pages.pullDown,
             name: "PullDown",
             component: PullDown
+        },
+        {
+            path: routes.pages.request,
+            name: "Request",
+            component: Request
         }
     ]
 })

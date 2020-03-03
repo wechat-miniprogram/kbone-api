@@ -1,4 +1,6 @@
 import {asyncApis} from "./api"
+// eslint-disable-next-line
+import {AnyObj} from "../api/index.d"
 
 // eslint-disable-next-line
 function _promisify(func: ({}) => {}) {
@@ -23,19 +25,22 @@ function hasCallback(args: {[key: string]: any} ) {
     return false
 }
 
+export function wrapFn(func: any) {
+    return function(args: AnyObj) {
+        if (hasCallback(args)) {
+            func(args)
+        } else {
+            return _promisify(func)(args)
+        }
+    }
+}
+
 // eslint-disable-next-line
 function PromiseAll(wx: {[key: string]: any} = {}, wxp: {[key: string]: any} = {}){
     Object.keys(wx).forEach(key => {
         const fn = wx[key]
         if (typeof fn === "function" && asyncApis.indexOf(key) >= 0) {
-            wxp[key] = (args: {[key: string]: () => {}}) => {
-                if (hasCallback(args)) {
-                    // 如果已经有 callback,则不走 promise 化
-                    fn(args)
-                } else {
-                    return _promisify(fn)(args)
-                }
-            }
+            wxp[key] = wrapFn(fn)
         } else {
             wxp[key] = fn
         }

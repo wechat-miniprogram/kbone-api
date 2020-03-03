@@ -19,7 +19,7 @@ const params = {
 }
 
 export function request(args:AnyObj = {}) {
-    const options = Object.assign({}, args, params)
+    const options = Object.assign({}, params, args)
     let url = options.url
     const method = options.method.toUpperCase()
 
