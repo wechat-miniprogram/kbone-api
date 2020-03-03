@@ -12,6 +12,11 @@
 
 ## 快速上手
 
+```
+tnpm install
+tnpm run dev
+```
+
 
 ## LICENSE
 MIT
