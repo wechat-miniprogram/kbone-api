@@ -1,6 +1,6 @@
 {
   "name": "kbone-api",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "description": "common api for developing cross-platform app",
   "main": "lib/index.js",
   "scripts": {
