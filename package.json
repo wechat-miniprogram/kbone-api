@@ -6,7 +6,7 @@
   "scripts": {
     "dev:web": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.dev.config.js",
     "dev:mp": "cross-env NODE_ENV=development webpack --config build/webpack.mp.config.js --progress --hide-modules",
-    "build": "cross-env NODE_ENV=production webpack --config build/bin/webpack.library.js --progress --hide-modules",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.library.js --progress --hide-modules",
     "dev": "cross-env NODE_ENV=development webpack --config build/webpack.library.js --progress --hide-modules --watch",
     "test": "jest --colors --config .jestrc.json",
     "coverage": "jest --colors --coverage  --config .jestrc.json",

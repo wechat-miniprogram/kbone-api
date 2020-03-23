@@ -1,4 +1,3 @@
-import { AnyObj } from '../api/index.d'
 
 export function canIUse() {
     return false
@@ -15,7 +14,7 @@ export function base64ToArrayBuffer(base64: string) {
 }
 
 export function arrayBufferToBase64(buffer: ArrayBuffer) {
-    let binaryString = ''
+    let binaryString = ""
     const bytes = new Uint8Array(buffer)
     const len = bytes.byteLength
     for (let i = 0; i < len; i++) {
@@ -25,7 +24,7 @@ export function arrayBufferToBase64(buffer: ArrayBuffer) {
 }
 
 
-export function getSystemInfoSync(params: AnyObj) {
+export function getSystemInfoSync() {
     return {
         SDKVersion: "2.0.4",
         batteryLevel: 100,
@@ -54,7 +53,7 @@ class UpdateManager {
 }
 
 export function getUpdateManager() {
-    return new UpdateManager
+    return new UpdateManager()
 }
 
 /**
@@ -66,7 +65,7 @@ export function getLaunchOptionsSync() {
         query: {},
         referrerInfo: {},
         scene: 1001,
-        shareTicket: ''
+        shareTicket: ""
     }
 }
 
@@ -76,7 +75,7 @@ export function getEnterOptionsSync() {
         query: {},
         referrerInfo: {},
         scene: 1001,
-        shareTicket: ''
+        shareTicket: ""
     }
 }
 
@@ -95,7 +94,7 @@ class RealtimeLogManager {
 }
 
 export function getRealtimeLogManager() {
-    return new RealtimeLogManager
+    return new RealtimeLogManager()
 }
 
 class LogManager {
@@ -106,7 +105,7 @@ class LogManager {
 }
 
 export function getLogManager() {
-    return new LogManager
+    return new LogManager()
 }
 
 // 动画
@@ -144,7 +143,7 @@ class Animation {
 }
 
 export function createAnimation() {
-    return new Animation
+    return new Animation()
 }
 
 export function getMenuButtonBoundingClientRect() {
@@ -158,7 +157,7 @@ export function getMenuButtonBoundingClientRect() {
     }
 }
 
-class UDPSocket{
+class UDPSocket {
     bind() {}
     close() {}
     offClose() {}
@@ -173,7 +172,7 @@ class UDPSocket{
 }
 
 export function createUDPSocket() {
-    return new UDPSocket
+    return new UDPSocket()
 }
 
 // 地图
@@ -190,7 +189,7 @@ class MapContext {
 }
 
 export function createMapContext() {
-    return new MapContext
+    return new MapContext()
 }
 
 class VideoContext {
@@ -207,11 +206,11 @@ class VideoContext {
 }
 
 export function createVideoContext() {
-    return new VideoContext
+    return new VideoContext()
 }
 
 
-class InnerAudioContext{
+class InnerAudioContext {
     destroy() {}
     offCanplay() {}
     offEnded() {}
@@ -240,21 +239,21 @@ class InnerAudioContext{
 }
 
 export function createInnerAudioContext() {
-    return new InnerAudioContext
+    return new InnerAudioContext()
 }
 
-class AudioContext{
-    pause(){}
-    play(){}
-    seek(){}
-    setSrc(){}
+class AudioContext {
+    pause() {}
+    play() {}
+    seek() {}
+    setSrc() {}
 }
 
 export function createAudioContext() {
-    return new AudioContext
+    return new AudioContext()
 }
 
-class BackgroundAudioManager{
+class BackgroundAudioManager {
     onCanplay() {}
     onEnded() {}
     onError() {}
@@ -274,7 +273,7 @@ class BackgroundAudioManager{
 }
 
 export function getBackgroundAudioManager() {
-    return new BackgroundAudioManager
+    return new BackgroundAudioManager()
 }
 
 class LivePUsherContext {
@@ -296,10 +295,10 @@ class LivePUsherContext {
 }
 
 export function createLivePusherContext() {
-    return new LivePUsherContext
+    return new LivePUsherContext()
 }
 
-class LivePlayerContext{
+class LivePlayerContext {
     exitFullScreen() {}
     mute() {}
     pause() {}
@@ -311,10 +310,10 @@ class LivePlayerContext{
 }
 
 export function createLivePlayerContext() {
-    return new LivePlayerContext
+    return new LivePlayerContext()
 }
 
-class RecorderManager{
+class RecorderManager {
     onError() {}
     onFrameRecorded() {}
     onInterruptionBegin() {}
@@ -330,29 +329,29 @@ class RecorderManager{
 }
 
 export function getRecorderManager() {
-    return new RecorderManager
+    return new RecorderManager()
 }
 
-class CameraContext{
-    onCameraFrame(){
-        return new CameraFrameListener
+class CameraContext {
+    onCameraFrame() {
+        return new CameraFrameListener()
     }
-    setZoom(){}
-    startRecord(){}
-    stopRecord(){}
-    takePhoto(){}
+    setZoom() {}
+    startRecord() {}
+    stopRecord() {}
+    takePhoto() {}
 }
 
-class CameraFrameListener{
+class CameraFrameListener {
     start() {}
     end() {}
 }
 
 export function createCameraContext() {
-    return new CameraContext
+    return new CameraContext()
 }
 
-class MediaContainer{
+class MediaContainer {
     addTrack() {}
     destroy() {}
     export() {}
@@ -361,10 +360,10 @@ class MediaContainer{
 }
 
 export function createMediaContainer() {
-    return new MediaContainer
+    return new MediaContainer()
 }
 
-class CanvasContext{
+class CanvasContext {
     arc() {}
     arcTo() {}
     beginPath() {}
@@ -410,15 +409,15 @@ class CanvasContext{
 }
 
 export function createCanvasContext() {
-    return new CanvasContext
+    return new CanvasContext()
 }
 
-class OffscreenCanvas{
+class OffscreenCanvas {
     getContext() {}
 }
 
 export function createOffscreenCanvas() {
-    return new OffscreenCanvas
+    return new OffscreenCanvas()
 }
 
 class FileSystemManager {
@@ -453,7 +452,7 @@ class FileSystemManager {
 }
 
 export function getFileSystemManager() {
-    return new FileSystemManager
+    return new FileSystemManager()
 }
 
 export function getAccountInfoSync() {
@@ -464,22 +463,14 @@ export function getAccountInfoSync() {
     }
 }
 
-class Worker{
+class Worker {
     onMessage() {}
     postMessage() {}
     terminate() {}
 }
 
 export function createWorker() {
-    return new Worker
-}
-
-class NodesRef{
-    boundingClientRect() {}
-    context() {}
-    fields() {}
-    node() {}
-    scrollOffset() {}
+    return new Worker()
 }
 
 class SelectorQuery {
@@ -491,5 +482,5 @@ class SelectorQuery {
 }
 
 export function createSelectorQuery() {
-    return new SelectorQuery
+    return new SelectorQuery()
 }
