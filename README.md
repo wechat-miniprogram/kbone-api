@@ -12,11 +12,54 @@
 
 ## 快速上手
 
+下载 kbone-api
+
 ```
-tnpm install
-tnpm run dev
+npm install kbone-api
 ```
 
+通过 commonjs 的方式直接导出模块并使用：
+```js
+import kboneAPI from 'kbone-api'
+
+kboneAPI.request()
+kboneAPI.showToast()
+kboneAPI.showModal()
+```
+
+为了方便 Vue 开发，可以直接使用 Vue.use(kboneAPI) 来设置全局对象.
+
+```js
+# main.js
+import Vue from 'vue'
+
+Vue.use(kboneAPI)
+
+# logic code
+<script>
+export default {
+    name: "LoginComponents",
+    methods: {
+        gotologin() {
+            return this.$api.login().then(() => {
+                this.$api.showToast({
+                    title: "登录成功",
+                })
+            })
+        },
+        getSetting() {
+            // 获取用户设置
+            return this.$api.getSetting()
+                .then(res => {
+                    this.$api.showToast({
+                        title: res.nickName || "零度的田"
+                    })
+                })
+        }
+    }
+}
+</script>
+```
 
 ## LICENSE
 MIT
