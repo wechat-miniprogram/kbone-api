@@ -6,7 +6,7 @@
 
 * 针对基于 kbone 的多端开发，满足在 Web 上直接使用小程序相关 api
 * 不依赖 kbone 和 kbone-ui，一个无依赖的小程序 api 的跨端库
-* 完整对齐 wx[apis]
+* 完整对齐 [wx[apis]](https://developers.weixin.qq.com/miniprogram/dev/api/)
 * 同时支持 promise 化和 callback 调用
 
 
