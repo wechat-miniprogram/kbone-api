@@ -19,7 +19,7 @@
 npm install kbone-api
 ```
 
-通过 commonjs 的方式直接导出模块并使用：
+通过模块的方式直接导出模块并使用：
 ```js
 import kboneAPI from 'kbone-api'
 
