@@ -62,6 +62,14 @@ export default {
                             text: "交互",
                             link: routes.pages.interaction
                         },
+                        {
+                            text: "顶部栏 api",
+                            link: routes.pages.titleBar
+                        },
+                        {
+                            text: "页面下拉",
+                            link: routes.pages.pullDown
+                        }
                     ]
                 },
                 {
@@ -73,21 +81,6 @@ export default {
                             text: "常用接口",
                             link: routes.pages.login
                         },
-                    ]
-                },
-                {
-                    title: "界面",
-                    img: require("../../images/icon_nav_nav.png"),
-                    active: false,
-                    items: [
-                        {
-                            text: "顶部栏 api",
-                            link: routes.pages.titleBar
-                        },
-                        {
-                            text: "页面下拉",
-                            link: routes.pages.pullDown
-                        }
                     ]
                 },
                 {
