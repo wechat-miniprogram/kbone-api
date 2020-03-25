@@ -4,7 +4,7 @@
 
 ## 开发流程
 
-首先需要将代码仓库 clone 下来：http://git.code.oa.com/wxweb/kbone-api.git，然后切到 develop 分支。
+首先需要将代码仓库 clone 下来：https://github.com/wechat-miniprogram/kbone-api.git，然后切到 develop 分支。
 
 初次将代码 clone 下来后，需要先运行 `npm run install` 来完成 lerna 的初始化，之后才能进入开发的流程：
 
