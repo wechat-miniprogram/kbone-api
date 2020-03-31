@@ -120,6 +120,16 @@ export default class ActionSheet {
                 errMsg: "fail cancel"
             })
         }
+        this.mask.onclick = () => {
+            this.hide()
+            options.complete()
+            options.fail({
+                errMsg: "fail cancel"
+            })
+            this.rejectHandler({
+                errMsg: "fail cancel"
+            })
+        }
         this.cancelTextTag = document.createElement("div")
         this.cancelTextTag.classList.add("weui-actionsheet__cell")
         this.cancelTextTag.textContent = "取消"
