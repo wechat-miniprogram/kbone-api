@@ -16,14 +16,10 @@ export function showToast(options = {}) {
     return toast.show(options)
 }
 // eslint-disable-next-line
-export function hideToast(options: {[key: string]: any} = {}){
-    return toast.hide(0)
-        .then(() => {
-            // eslint-disable-next-line
-            (typeof options.success === "function") && options.success()
-            // eslint-disable-next-line
-            (typeof options.complete === "function") && options.complete()
-        })
+export async function hideToast(options: { [key: string]: any } = {}) {
+    await toast.hide(0);
+    (typeof options.success === "function") && options.success()
+    (typeof options.complete === "function") && options.complete()
 }
 
 
@@ -37,14 +33,10 @@ export function showLoading(options:{[key in string]: any} = {}) {
     return toast.show(options)
 }
 
-export function hideLoading(options: {[key: string]: any} = {}) {
-    return toast.hide(0)
-        .then(() => {
-            // eslint-disable-next-line
-            (typeof options.success === "function") && options.success()
-            // eslint-disable-next-line
-            (typeof options.complete === "function") && options.complete()
-        })
+export async function hideLoading(options: { [key: string]: any } = {}) {
+    await toast.hide(0);
+    (typeof options.success === "function") && options.success()
+    (typeof options.complete === "function") && options.complete()
 }
 
 export function showActionSheet(options = {}) {
