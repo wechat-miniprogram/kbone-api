@@ -203,7 +203,7 @@ export default class ActionSheet {
         }
 
         this.actionTag.style.transform = "translate(0, 0)"
-        this.actionTag.style["-webkit-transform"] = "translate(0, 0)"
+        this.actionTag.style["-webkit-transform" as any] = "translate(0, 0)"
         this.mask.style.display = "block"
 
         return new Promise((resolve, reject) => {
@@ -213,7 +213,7 @@ export default class ActionSheet {
     }
     hide() {
         this.actionTag.style.transform = "translate(0, 100%)"
-        this.actionTag.style["-webkit-transform"] = "translate(0, 100%)"
+        this.actionTag.style["-webkit-transform" as any] = "translate(0, 100%)"
         this.mask.style.display = "none"
     }
 }
