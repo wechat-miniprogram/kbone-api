@@ -30,6 +30,7 @@ export function request(args:AnyObj = {}) {
 
     // 检查 header
     let headers = convertObjectValueToString(options.header)
+    headers['content-type'] = headers['content-type'] || 'application/json'
     headers = Object.keys(headers).reduce((pre: { [key in string]: string }, cur: string) => {
         if (cur.toLowerCase() === "content-type") {
             pre[cur.toLowerCase()] = headers[cur]
