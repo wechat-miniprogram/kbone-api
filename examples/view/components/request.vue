@@ -39,7 +39,12 @@ export default {
     methods: {
         requestUrl() {
             return this.$api.request({
-                url: urlConfig.requestUrl
+                url: urlConfig.requestUrl,
+                // 支持携带fetch 原生API的参数
+                // fetchOptions: {
+                //     mode: "cors",
+                //     credentials: "include"
+                // }
             })
                 .then(() => {
                     this.$api.showToast({

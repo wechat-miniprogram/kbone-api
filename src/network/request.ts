@@ -58,11 +58,11 @@ export function request(args:AnyObj = {}) {
     }
 
     const result: AnyObj = {}
-    return fetch(url, {
+    return fetch(url, Object.assign({
         method,
         headers,
         body
-    })
+    }, options.fetchOptions))
         .then((response: Response) => {
             result.statusCode = response.status
             result.header = {}
