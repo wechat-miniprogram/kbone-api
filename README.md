@@ -66,7 +66,5 @@ export default {
 
 所有 api 使用对齐小程序 api，具体内容可以参考 [小程序 api](https://developers.weixin.qq.com/minigame/dev/api/)。
 
-线上体验地址为：[api/ui/](https://wechat-miniprogram.github.io/api/ui/#/)
-
 ## LICENSE
 MIT
